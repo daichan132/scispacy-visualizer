@@ -30,6 +30,7 @@ st.sidebar.markdown(
 # ------------------------------- main contents ------------------------------ #
 
 
+@st.cache()
 def get_doc_info(doc):
     doc_info = []
     for token in doc:
@@ -43,6 +44,12 @@ def get_doc_info(doc):
     return doc_info
 
 
+@st.cache(allow_output_mutation=True, suppress_st_warning=True)
+def process_text(nlp, text: str) -> spacy.tokens.Doc:
+    """Process a text and create a Doc object."""
+    return nlp(text)
+
+
 if "pysbd_sentencizer" not in nlp.pipe_names:
     nlp.add_pipe("pysbd_sentencizer", before="tok2vec")
 with st.form(key="my_form"):
@@ -52,7 +59,7 @@ with st.form(key="my_form"):
     )
     submit_button = st.form_submit_button(label="visualize")
     start = time.time()
-    doc = nlp(text)
+    doc = process_text(nlp, text)
     elapsed_time = time.time() - start
     st.write("processing time:\t", elapsed_time)
 
