@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "scispacy-visualizer"
+version = "0.1.0"
+description = ""
+authors = ["daichan132 <wakadai0319@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+scispacy = "^0.5.0"
+spacy-streamlit = "^1.0.2"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.dependencies.en_core_sci_sm]
+url = "https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.0/en_core_sci_sm-0.5.0.tar.gz"
+
+[tool.poetry.dependencies.en_core_sci_md]
+url = "https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.0/en_core_sci_md-0.5.0.tar.gz"
+
+[tool.poetry.dependencies.en_core_sci_lg]
+url = "https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.0/en_core_sci_lg-0.5.0.tar.gz"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
