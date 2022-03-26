@@ -59,7 +59,7 @@ with st.form(key="my_form"):
     )
     submit_button = st.form_submit_button(label="visualize")
     start = time.time()
-    doc = process_text(nlp, text)
+    doc = nlp(text)
     elapsed_time = time.time() - start
     st.write("processing time:\t", elapsed_time)
 
