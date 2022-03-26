@@ -6,8 +6,6 @@ import spacy
 import time
 import pandas as pd
 
-caching.clear_cache()
-
 st.set_page_config(
     page_title="Scispacy-Visualizer",
     layout="wide",
