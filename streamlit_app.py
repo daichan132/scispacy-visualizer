@@ -13,9 +13,7 @@ st.set_page_config(
 
 # --------------------------------- side bar --------------------------------- #
 
-spacy_model = st.sidebar.selectbox(
-    "Model name", ["en_core_sci_sm", "en_core_sci_md", "en_core_sci_lg"]
-)
+spacy_model = "en_core_sci_sm"
 nlp = load_model(spacy_model)
 st.sidebar.subheader("Pipeline info")
 desc = f"""<p style="font-size: 0.85em; line-height: 1.5"><strong>{spacy_model}:</strong> <code>v{nlp.meta['version']}</code>. {nlp.meta.get("description", "")}</p>"""
