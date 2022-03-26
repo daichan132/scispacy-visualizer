@@ -1,5 +1,7 @@
 # Scispacy-Visualizer
 
+複数のモデルを使用するためにローカルで動かす用
+
 ## 実行方法
 
 python - `3.9.12`
