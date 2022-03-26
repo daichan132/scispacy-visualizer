@@ -30,7 +30,6 @@ st.sidebar.markdown(
 # ------------------------------- main contents ------------------------------ #
 
 
-@st.cache()
 def get_doc_info(doc):
     doc_info = []
     for token in doc:
@@ -42,12 +41,6 @@ def get_doc_info(doc):
         ]
         doc_info.append(token_info)
     return doc_info
-
-
-@st.cache(allow_output_mutation=True, suppress_st_warning=True)
-def process_text(nlp, text: str) -> spacy.tokens.Doc:
-    """Process a text and create a Doc object."""
-    return nlp(text)
 
 
 if "pysbd_sentencizer" not in nlp.pipe_names:
