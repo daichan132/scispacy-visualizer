@@ -1,6 +1,5 @@
 import streamlit as st
-from streamlit import caching
-from spacy_streamlit import load_model, visualize_tokens, visualize_parser
+from spacy_streamlit import visualize_tokens, visualize_parser
 from scispacy.custom_sentence_segmenter import pysbd_sentencizer
 import spacy
 import time
@@ -17,7 +16,7 @@ st.set_page_config(
 spacy_model = st.sidebar.selectbox(
     "Model name", ["en_core_sci_sm", "en_core_sci_md", "en_core_sci_lg"]
 )
-nlp = load_model(spacy_model)
+nlp = spacy.load(spacy_model)
 st.sidebar.subheader("Pipeline info")
 desc = f"""<p style="font-size: 0.85em; line-height: 1.5"><strong>{spacy_model}:</strong> <code>v{nlp.meta['version']}</code>. {nlp.meta.get("description", "")}</p>"""
 st.sidebar.markdown(desc, unsafe_allow_html=True)
